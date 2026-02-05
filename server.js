@@ -11,7 +11,6 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// Verification log
 console.log("GROQ KEY LOADED:", process.env.GROQ_API_KEY ? "YES" : "NO")
 
 const groq = new Groq({
@@ -27,10 +26,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"))
 })
 
-/**
- * GET /api/challenge
- * Generates a one-line prompt engineering task.
- */
 app.get("/api/challenge", async (req, res) => {
   try {
     const response = await groq.chat.completions.create({
@@ -58,10 +53,6 @@ app.get("/api/challenge", async (req, res) => {
   }
 })
 
-/**
- * POST /api/judge
- * Evaluates the user's prompt and returns structured feedback.
- */
 app.post("/api/judge", async (req, res) => {
   try {
     const userPrompt = req.body.prompt

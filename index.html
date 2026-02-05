@@ -72,7 +72,7 @@ document.getElementById("newBtn").onclick=async()=>{
     resultBox.textContent="";
     promptInput.value="";
 
-    const res=await fetch("http://localhost:3000/api/challenge");
+    const res=await fetch("/api/challenge");
     const data=await res.json();
     challengeBox.textContent=data.challenge||"Failed to load challenge";
 };
@@ -88,7 +88,7 @@ document.getElementById("submitBtn").onclick=async()=>{
 
     resultBox.textContent="AI is judging your prompt";
 
-    const res=await fetch("http://localhost:3000/api/judge",{
+    const res=await fetch("/api/judge",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({challenge,prompt})
