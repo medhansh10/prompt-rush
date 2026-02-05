@@ -51,7 +51,7 @@
 </head>
 <body>
     <div class="app">
-        <h2>🎯 AI Prompt Challenge</h2>
+        <h2> AI Prompt Challenge</h2>
         <div id="challenge">Click "New Challenge"</div>
 
         <textarea id="promptInput" placeholder="Write your prompt here..."></textarea>
@@ -68,7 +68,7 @@ const promptInput=document.getElementById("promptInput");
 const resultBox=document.getElementById("result");
 
 document.getElementById("newBtn").onclick=async()=>{
-    challengeBox.textContent="Generating challenge... 🎯";
+    challengeBox.textContent="Generating challenge";
     resultBox.textContent="";
     promptInput.value="";
 
@@ -86,7 +86,7 @@ document.getElementById("submitBtn").onclick=async()=>{
         return;
     }
 
-    resultBox.textContent="AI is judging your prompt... 🤖";
+    resultBox.textContent="AI is judging your prompt";
 
     const res=await fetch("http://localhost:3000/api/judge",{
         method:"POST",
